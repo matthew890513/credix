@@ -1,0 +1,120 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav class="sidenav" mode="side" [opened]="true">
+    <mat-toolbar color="primary" class="toolbar-title">
+      <img src="assets/images/logo-login.png" alt="Logo" class="toolbar-logo" />
+      {{ title }}
+    </mat-toolbar>
+
+    <div class="menu-wrapper">
+      <div class="menu-scroll">
+        <mat-nav-list>
+          <ng-container *ngFor="let item of menuItems">
+            <!-- Ítem SIN hijos -->
+            <a
+              *ngIf="!item.children"
+              mat-list-item
+              [routerLink]="item.path"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              class="menu-item"
+            >
+              <mat-icon class="menu-icon">{{ item.icon }}</mat-icon>
+              <span class="menu-label">{{ item.label | translate }}</span>
+            </a>
+
+            <!-- Ítem CON hijos -->
+            <mat-expansion-panel *ngIf="item.children" class="menu-expansion">
+              <mat-expansion-panel-header>
+                <mat-panel-title class="menu-item">
+                  <mat-icon class="menu-icon">{{ item.icon }}</mat-icon>
+                  <span class="menu-label">{{ item.label | translate }}</span>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+
+              <mat-nav-list>
+                <a
+                  mat-list-item
+                  *ngFor="let child of item.children"
+                  [routerLink]="child.path"
+                  routerLinkActive="active"
+                  class="menu-item sub-item"
+                >
+                  <mat-icon class="menu-icon">{{ child.icon }}</mat-icon>
+                  <span class="menu-label">{{ child.label  | translate }}</span>
+                </a>
+              </mat-nav-list>
+            </mat-expansion-panel>
+          </ng-container>
+        </mat-nav-list>
+      </div>
+
+      <div class="logout-fixed">
+        <!-- Info del usuario -->
+        <div class="session-info">
+          <div class="user-row">
+            <strong>{{ 'MENU.USER' | translate }}</strong>
+            <span class="user-name">{{ session.uname }}</span>
+          </div>
+
+          <div class="session-selector-row">
+            <label for="plant-select">{{ 'MENU.PLANT' | translate }}</label>
+            <select
+              id="plant-select"
+              [(ngModel)]="session.plant"
+              (change)="updatePlant($event)"
+            >
+              <option *ngFor="let plant of plants" [value]="plant">
+                {{ plant }}
+              </option>
+            </select>
+          </div>
+
+          <div class="session-selector-row">
+            <label for="printer-select">{{ 'MENU.PRINTER' | translate }}</label>
+            <select
+              id="printer-select"
+              [(ngModel)]="session.printer"
+              (change)="updatePrinter($event)"
+            >
+              <option
+                *ngFor="let printer of printers"
+                [value]="printer.printer"
+              >
+                {{ printer.printer }}
+              </option>
+            </select>
+          </div>
+
+          <div class="session-selector-row">
+            <label for="lang-select">{{ 'MENU.LANGUAGE' | translate }}</label>
+            <select
+              id="lang-select"
+              [(ngModel)]="session.lang"
+              (change)="updateLang($event)"
+            >
+              <option *ngFor="let lang of languages" [value]="lang.value">
+                {{ lang.label }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+        <mat-nav-list>
+          <a mat-list-item (click)="help()" class="menu-item">
+            <mat-icon class="menu-icon">help</mat-icon>
+            <span class="menu-label">{{ 'MENU.HELP' | translate }}</span>
+          </a>
+          <a mat-list-item (click)="logout()" class="menu-item">
+            <mat-icon class="menu-icon">logout</mat-icon>
+            <span class="menu-label">{{ 'MENU.LOGOUT' | translate }}</span>
+          </a>
+        </mat-nav-list>
+        <div class="session-info-version">
+          <p class="app-version"><strong>{{ 'MENU.VERSION' | translate }}</strong> {{ appVersion }}</p>
+        </div>
+      </div>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content></mat-sidenav-content>
+</mat-sidenav-container>

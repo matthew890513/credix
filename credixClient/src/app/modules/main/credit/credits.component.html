@@ -1,0 +1,57 @@
+<mat-card>
+  <mat-card-title>Créditos</mat-card-title>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Amount Column -->
+    <ng-container matColumnDef="amount">
+      <th mat-header-cell *matHeaderCellDef> Amount </th>
+      <td mat-cell *matCellDef="let element"> {{element.amount | currency}} </td>
+    </ng-container>
+
+    <!-- Delivery Date Column -->
+    <ng-container matColumnDef="deliveryDate">
+      <th mat-header-cell *matHeaderCellDef> Delivery Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.deliveryDate}} </td>
+    </ng-container>
+
+    <!-- Payment Frequency Column -->
+    <ng-container matColumnDef="paymentFrequency">
+      <th mat-header-cell *matHeaderCellDef> Frequency </th>
+      <td mat-cell *matCellDef="let element"> {{element.paymentFrequency}} </td>
+    </ng-container>
+
+    <!-- Status Column -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+
+    <!-- Customer ID Column -->
+    <ng-container matColumnDef="customerId">
+      <th mat-header-cell *matHeaderCellDef> Customer ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.customerId}} </td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="primary" (click)="viewDetails(element)">
+          <mat-icon>visibility</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</mat-card>

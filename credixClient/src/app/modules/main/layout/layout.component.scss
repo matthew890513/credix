@@ -1,0 +1,23 @@
+.layout-container {
+  height: 100vh;
+}
+
+.menu-sidenav {
+  width: 250px;
+}
+
+.content {
+  padding: 16px;
+}
+
+/* Estilo del toolbar solo visible en mobile */
+.mobile-toolbar {
+  display: flex;
+  align-items: center;
+}
+
+.toolbar-title {
+  margin-left: 12px;
+  font-weight: 500;
+  font-size: 18px;
+}

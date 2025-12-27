@@ -1,0 +1,40 @@
+{
+  "AUTH_REDIRECT": {
+    "TEXT": "Verificando sesión.."
+  },
+  "LOGIN": {
+    "TITLE": "Inicia sesión en tu cuenta",
+    "INPUT_USER": "Usuario SAP",
+    "INPUT_PASSWORD": "Contraseña",
+    "BUTTON_LOGIN": "Iniciar sesión",
+    "UNLOCK_USER": "Desbloquear usuario SAP"
+  },
+  "DASHBOARD": {
+    "TITLE": "Bienvenido"
+  },
+  "MENU": {
+    "MENU": {
+      "DASHBOARD": "Dashboard",
+      "BACKFLUSH": "Backflush",
+      "LABELPRINTING": "Impresión Etiquetas",
+      "LABELPRINTINGDOCUMENT": "Impresión Etiq. Documento",
+      "LABELPRINTINGMATERIAL": "Impresión Etiq. Material",
+      "MATERIALREQUEST": "Solicitud Material",
+      "GOODSRECEIPT": "Recepción Mercancía",
+      "ADMIN": "Administración",
+      "ADMINUSERS": "Admin Usuarios",
+      "ADMINPRINTERS": "Admin Impresoras",
+      "ADMINPLANTS": "Admin Plantas",
+      "ADMINPRAREA": "Admin PRAREA",
+      "ADMINCONST": "Admin CONST",
+      "ADMINTR": "Admin TR"
+    },
+    "USER": "Usuario:",
+    "PRINTER": "Impresora:",
+    "PLANT": "Planta:",
+    "LANGUAGE": "Idioma:",
+    "HELP": "Ayuda",
+    "LOGOUT": "Salir",
+    "VERSION": "Versión:"
+  }
+}

@@ -1,0 +1,26 @@
+<mat-sidenav-container class="layout-container">
+  <!-- Menú lateral o hamburguesa -->
+  <mat-sidenav
+    #sidenav
+    class="menu-sidenav"
+    [mode]="isMobile ? 'over' : 'side'"
+    [opened]="!isMobile"
+    (closedStart)="onCloseMenu()"
+  >
+    <!--<app-menu></app-menu>-->
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <!-- Top bar visible solo en móviles -->
+    <mat-toolbar color="primary" class="mobile-toolbar" *ngIf="isMobile">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="toolbar-title"></span>
+    </mat-toolbar>
+
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

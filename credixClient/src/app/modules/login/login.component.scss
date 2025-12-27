@@ -1,0 +1,59 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  padding: 1rem;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  background-color: white;
+
+    h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+  }
+
+  .full-width {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+  }
+}
+
+.login-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.app-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #1976d2; // opcionalmente puedes cambiar el color del texto
+}
+
+.app-logo {
+  width: 100px; // o el tamaño que necesites
+  height: 100px;
+  object-fit: cover;
+  border-radius: 0; // <- asegura que no sea redondo
+  margin-top: 1rem;
+}
+
+.forgot-password-link.below-button {
+  text-align: right;
+  margin-top: 1rem;
+}

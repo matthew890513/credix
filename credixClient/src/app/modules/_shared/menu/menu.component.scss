@@ -1,0 +1,276 @@
+$sidenav-color: #673ab7; // Morado Angular Material
+
+.sidenav-container {
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.sidenav {
+  width: 250px;
+  height: 100%;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  background-color: #fafafa; // fondo claro
+  color: #333;
+}
+
+.toolbar-title {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 18px; // texto un poco más pequeño
+  color: $sidenav-color;
+  padding: 0 16px;
+  height: 64px;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.toolbar-logo {
+  height: 28px; // icono un poco más pequeño
+  width: 28px;
+  margin-right: 12px;
+  object-fit: contain;
+  border-radius: 0;
+  vertical-align: middle;
+}
+
+.menu-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: calc(100vh - 64px);
+  overflow: hidden;
+}
+
+.menu-scroll {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-top: 0.5rem;
+}
+
+mat-nav-list {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+a.menu-item {
+  padding-left: 16px;
+  padding-right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px; // menos espacio entre icono y texto
+  height: 40px; // menú más compacto
+  box-sizing: border-box;
+  color: #555;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 13px; // texto más pequeño
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+a.menu-item.sub-item {
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 30px; /* un poco más pequeño también si quieres */
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+a.menu-item:hover {
+  background-color: #ede7f6; // fondo morado claro suave (deep purple 50)
+  color: $sidenav-color;
+}
+
+a.active {
+  background-color: #d1c4e9; // morado claro para activo (deep purple 100)
+  font-weight: 700;
+  color: $sidenav-color;
+  box-shadow: inset 4px 0 0 $sidenav-color; // barra lateral morada
+}
+
+.menu-icon {
+  font-size: 18px; // iconos más pequeños
+  color: #888;
+  vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a.menu-item:hover .menu-icon {
+  color: $sidenav-color;
+}
+
+a.active .menu-icon {
+  color: $sidenav-color;
+}
+
+.menu-label {
+  font-size: 13px;
+  line-height: 1;
+  display: inline-block;
+}
+
+.sub-item {
+  padding-left: 12px;
+
+  .menu-label {
+    font-size: 10px;
+    color: #666;
+  }
+
+  .menu-icon {
+    font-size: 16px;
+    color: #999;
+  }
+}
+
+.menu-expansion {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border-bottom: none !important;
+  margin: 0 !important;
+  color: inherit;
+
+  .mat-expansion-panel-header {
+    padding: 0 16px;
+    min-height: 40px;
+    color: inherit;
+  }
+
+  .mat-expansion-panel-header.mat-expanded {
+    background-color: transparent !important;
+  }
+
+  .mat-expansion-panel-content {
+    padding: 0;
+    padding-bottom: 0;
+    margin: 0;
+  }
+
+  .mat-expansion-indicator {
+    color: $sidenav-color;
+  }
+
+  &:hover {
+    background-color: #ede7f6;
+  }
+}
+
+.logout-fixed {
+  border-top: 1px solid #eee;
+  padding: 12px 16px;
+  background-color: #fff;
+  color: #555;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.logout-fixed a.menu-item {
+  color: #555;
+  font-weight: 400;
+  padding: 8px 0;
+  margin: 0;
+  border-radius: 4px;
+  font-size: 13px;
+  height: 36px;
+}
+
+.logout-fixed a.menu-item:hover {
+  background-color: #ede7f6;
+  color: $sidenav-color;
+  font-weight: 600;
+}
+
+.session-info {
+  padding: 0.5rem 0;
+  font-size: 0.7rem;
+  color: #555;
+
+  .user-row {
+    display: flex;
+    align-items: center; // verticalmente centrado
+    gap: 8px;
+    font-size: 13px;
+
+    strong {
+      font-weight: 700;
+      font-size: 13px;
+      min-width: 60px; // igual que labels
+    }
+
+    .user-name {
+      width: 140px; // igual que selects
+      text-align: right; // alinear texto a la derecha
+      padding-left: 8px; // espacio para que no quede pegado a la derecha
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 22px; // igual alto que selects
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      /* Además, agrega un pequeño padding-right para que no quede pegado al borde */
+      padding-right: 8px;
+    }
+  }
+
+  p {
+    margin: 0.2rem 0;
+  }
+}
+
+.session-info-version {
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-align: center;
+  color: #999;
+  margin-top: 2px;
+
+  p {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+  }
+}
+
+.session-selector-row {
+  display: flex;
+  align-items: center;
+  gap: 8px; // espacio entre label y select
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 8px;
+
+  label {
+    min-width: 60px; // ancho fijo para etiquetas (ajusta según necesites)
+    font-weight: 600;
+  }
+
+  select {
+    flex: 1;
+    max-width: 140px;
+    height: 22px; // más bajito
+    font-size: 12px; // un poco más pequeño aún
+    padding: 0 6px; // menos padding vertical
+    border: none;
+    border-bottom: 1.5px solid #ccc; // solo borde inferior para dar línea delgada
+    border-radius: 0; // sin redondeo para ser más minimalista
+    background-color: transparent;
+    color: #555;
+    box-shadow: none; // sin sombra para limpieza visual
+    transition: border-color 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-bottom-color: #673ab7; // morado Angular Material
+    }
+  }
+}
